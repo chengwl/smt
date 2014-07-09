@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+
+	<!-- package log  -->
+	<logger name="com.cwl" level="DEBUG"/>
+	
+	<!-- LOGGING SQL  -->
+	<logger name="java.sql" level="DEBUG"/>
+	<logger name="org.apache.ibatis" level="DEBUG"/>
+	
+	<!--out console  -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<Target>System.out</Target>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- out log file  -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+		<file>logs/smt/server.log</file> <!-- Under the default output to tomcat/bin/ -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+			<FileNamePattern>>server.%d{yyyy-MM-dd}.log</FileNamePattern>  
+			<MaxHistory>30</MaxHistory>   
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>  
+		</encoder>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+	
+</configuration>
