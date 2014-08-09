@@ -9,17 +9,26 @@
 
 	<!-- Scans within the base package of the application for @Components to configure as beans -->
 	<!-- @Controller, @Service, @Configuration, etc. -->
-	<context:component-scan base-package="com.cwl.smt.web" />
+	<context:component-scan base-package="com.cwl.smt" />
 
-	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> 
-		<property name="order" value="0" /> </bean> -->
+
+	<!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />   这个类里面你可以注册拦截器什么的 -->
+	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jacksonMessageConverter" />    <!-- 注册JSON Converter -->
+			</list>
+		</property>
+	</bean>
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 
 	<!-- Resources or statics mapping -->
 	<mvc:default-servlet-handler />
-	<!-- <mvc:resources mapping="/resources/**" location="/resources/" /> -->
+	<mvc:resources mapping="/javascript/**" location="/statics/js/" />
+	<mvc:resources mapping="/css/**" location="/statics/js/" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

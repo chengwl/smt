@@ -8,14 +8,41 @@
 	// 将 "项目路径basePath" 放入pageContext中，待以后用EL表达式读出。 
 	pageContext.setAttribute("basePath", basePath);
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
 <head>
-	<title>smt 登录</title>
-	<script type="text/javascript">
-		location.href="<%=basePath%>login/intLoginPage";
-	</script>
+
+	<title>smt zhuye</title>
+
+
+<script type="text/javascript" src="<%=basePath%>/statics/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>/statics/js/common.js"></script>
+
+<script type="text/javascript">
+
+	
+
+	$(document).ready(function(e) {
+		
+		
+		
+	
+		
+		
+	});
+</script>
 </head>
+
+
 <body>
+	<div>
+	
+		wo shi yi ge hao ren ...
+		
+		
+	</div>
 </body>
 </html>
